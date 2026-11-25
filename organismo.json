@@ -139,6 +139,16 @@
      "ruta": "arnes/tablero/"
     },
     {
+     "titulo": "Pieza hecha con plantilla · Consejo de diseño",
+     "detalle": "consejo",
+     "ruta": "arnes/consejos/diseno.md"
+    },
+    {
+     "titulo": "Pieza hecha con plantilla · Revisión semanal (sin activar)",
+     "detalle": "agente · operativo",
+     "ruta": "espacios/asesoria/agentes/revision-semanal.md"
+    },
+    {
      "titulo": "Pieza hecha con plantilla · Asesoría",
      "detalle": "generador de caja",
      "ruta": "espacios/asesoria/` (sin pasar todavía por la plantilla)"
