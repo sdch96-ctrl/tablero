@@ -177,7 +177,8 @@ details.panel ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px
     pregunta: [["si", "Sí"], ["no", "No"], ["otra", "Otra respuesta"]],
     semilla: [["cuidar", "Seguir cuidándola"], ["descartar", "Descartar"]],
     fuente: [["aceptar", "Aceptar"], ["rechazar", "Rechazar"]],
-    cambio: [["aplicar", "Aplicar al plano"], ["corregir", "Corregir"], ["descartar", "Descartar"]]
+    cambio: [["aplicar", "Aplicar al plano"], ["corregir", "Corregir"], ["descartar", "Descartar"]],
+    regla: [["aprobar", "Aprobar"], ["corregir", "Corregir"], ["descartar", "Descartar"]]
   };
   const NECESITA_NOTA = { corregir: true, otra: true };
   let data = null, sel = "ecosistema", filtro = null, db = null, decisiones = {};
@@ -322,7 +323,7 @@ details.panel ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px
       const btns = el("div", "btns"); const nota = el("textarea"); nota.id = "nota-" + docId(p.id);
       nota.placeholder = "Nota para la oficina (obligatoria para corregir u otra respuesta)"; nota.value = (prev && prev.nota) || "";
       const estado = el("div", "saved", prev ? `Decidido: ${prev.etiqueta}${prev.procesado ? " · aplicado por la oficina" : " · pendiente de aplicar"}` : "");
-      (OPCIONES[p.tipo] || OPCIONES.ficha).forEach(([val, label]) => {
+      (p.opciones || OPCIONES[p.tipo] || OPCIONES.ficha).forEach(([val, label]) => {
         const b = el("button", "btn" + (prev && prev.decision === val ? " on" : ""), label); b.type = "button";
         if (!db) b.disabled = true;
         b.addEventListener("click", () => decidir(p, val, label, nota, estado, b));

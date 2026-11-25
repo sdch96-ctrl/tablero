@@ -144,6 +144,16 @@
      "ruta": "espacios/asesoria/` (sin pasar todavía por la plantilla)"
     },
     {
+     "titulo": "Consejo de diseño",
+     "detalle": "se convoca antes de construir algo nuevo",
+     "ruta": "arnes/consejos/diseno.md"
+    },
+    {
+     "titulo": "Acta · ¿Cómo se monta el departamento de conocimiento (la memoria común)? ¿Cuál es su primer agente, es una oficina, qué procesos sigue?",
+     "detalle": "pendiente de la decisión de David",
+     "ruta": "arnes/consejos/actas/2026-11-25-departamento-de-conocimiento.md"
+    },
+    {
      "titulo": "Abrir el diseñador de planos",
      "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
     },
@@ -250,8 +260,8 @@
      "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
     }
    ],
-   "pendientes": 9,
-   "pendientes_publico": 9
+   "pendientes": 10,
+   "pendientes_publico": 10
   },
   {
    "id": "metodos",
@@ -260,9 +270,14 @@
    "grupo": "jarvis",
    "que": "Las formas de trabajar que se repiten en cualquier pieza: construir algo, hacer ingeniería inversa de un producto, analizar a la competencia, aprender un tema por niveles.",
    "plantilla": "Forma de trabajar (por hacer)",
-   "estado": "iniciado",
-   "resumen": "5 métodos dibujados en el diseñador · sin plantilla de método todavía",
+   "estado": "vivo",
+   "resumen": "1 método escrito · 5 métodos dibujados en el diseñador",
    "items": [
+    {
+     "titulo": "Método · construir una pieza",
+     "detalle": "método escrito",
+     "ruta": "arnes/metodos/construir-una-pieza.md"
+    },
     {
      "titulo": "Método · diseñar un camino inicial y enlazarlo al ERP",
      "detalle": "Sistema · propuesto",
@@ -327,7 +342,7 @@
    "que": "Las reglas de todo el ecosistema, con jerarquía: principio 0 > principios > normas externas > políticas de cada espacio > criterios de oficio > preferencias. La de arriba manda.",
    "plantilla": "—",
    "estado": "vivo",
-   "resumen": "16 reglas escritas · jerarquía de 6 niveles",
+   "resumen": "16 reglas escritas · 14 borradores por aprobar · jerarquía de 6 niveles",
    "items": [
     {
      "titulo": "P0 · El imperio está al servicio del bienestar, no al revés. Jarvis protege el tiempo de David con la gente que quiere y su descanso, y no le propone trabajo que se los coma.",
@@ -394,6 +409,62 @@
      "detalle": "nueva, 25 nov 2026"
     },
     {
+     "titulo": "Borrador B1 · El éxito no está en una pieza (la asesoría, el ERP) sino en los procesos para crear todas las piezas con estructura y criterio.",
+     "detalle": "propuesto como principio · borrador"
+    },
+    {
+     "titulo": "Borrador B2 · Antes de construir algo nuevo de cierto tamaño, se convoca el consejo de diseño y su acta queda escrita.",
+     "detalle": "propuesto como criterio · borrador"
+    },
+    {
+     "titulo": "Borrador B3 · Todo lo que se aclara en una conversación que suene a regla se apunta como borrador pendiente de aprobación.",
+     "detalle": "propuesto como principio · borrador"
+    },
+    {
+     "titulo": "Borrador B4 · Un dibujo o una página del ecosistema tiene que salir de los datos reales y servir para actuar; si solo enseña, no vale.",
+     "detalle": "propuesto como criterio · borrador"
+    },
+    {
+     "titulo": "Borrador B5 · Lo que se mina de una fuente se lee entero y con preguntas delante; nada de «tres ideas por vídeo» con plantilla.",
+     "detalle": "propuesto como criterio · borrador"
+    },
+    {
+     "titulo": "Borrador B6 · Las ideas no se aparcan: o se trabajan (jardineros) o mueren con motivo y fecha.",
+     "detalle": "propuesto como criterio · borrador"
+    },
+    {
+     "titulo": "Borrador B7 · Personal y profesional van separados, pero las sinergias se etiquetan y Jarvis las detecta.",
+     "detalle": "propuesto como principio · borrador"
+    },
+    {
+     "titulo": "Borrador B8 · El reparto de recursos (cupo, tiempo de David) se hace explícito entre trabajar hoy, aprender y crecer, y se revisa.",
+     "detalle": "propuesto como política · borrador"
+    },
+    {
+     "titulo": "Borrador B9 · Las comprobaciones y aprobaciones se van automatizando por tipo de decisión, versión a versión, según se aprueban sin corregir.",
+     "detalle": "propuesto como criterio · borrador"
+    },
+    {
+     "titulo": "Borrador B10 · Cuando haya caja, se reinvierte en capacidad propia (servidores, modelos locales) combinada con modelos punteros.",
+     "detalle": "propuesto como política · borrador"
+    },
+    {
+     "titulo": "Borrador B11 · Lo que se publica en abierto (web de GitHub) va sin lo personal ni datos de clientes, y lo decide David.",
+     "detalle": "propuesto como política · borrador"
+    },
+    {
+     "titulo": "Borrador B12 · Un recorrido se prueba con casos inventados que cubran todas sus salidas antes de que lo siga un agente.",
+     "detalle": "propuesto como criterio · borrador"
+    },
+    {
+     "titulo": "Borrador B13 · El presupuesto no se manda por correo sin más (Tomás Sala); por decidir cómo afecta al recorrido 0.1.",
+     "detalle": "propuesto como política · borrador"
+    },
+    {
+     "titulo": "Borrador B14 · Primero equipos de agentes, después equipos mixtos con personas, para levantar generadores de caja.",
+     "detalle": "propuesto como principio · borrador"
+    },
+    {
      "titulo": "Reglas de cada generador",
      "detalle": "en el CLAUDE.md de cada espacio, apartado «Reglas propias»"
     },
@@ -402,8 +473,8 @@
      "ruta": "arnes/reglas/reglas.md"
     }
    ],
-   "pendientes": 0,
-   "pendientes_publico": 0
+   "pendientes": 14,
+   "pendientes_publico": 14
   },
   {
    "id": "asesoria",
@@ -777,6 +848,6 @@
  "sigue": [],
  "bandeja": [],
  "publico": true,
- "pendientes_total": 19,
+ "pendientes_total": 34,
  "decidir_en": "https://claude.ai/artifact/8dzoqjebYfSoyScxqZusjH"
 }
