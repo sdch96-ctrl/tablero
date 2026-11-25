@@ -1,0 +1,377 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-family:system-ui,sans-serif;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Tablero del arnés</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: el diagrama de David tal cual (David → ecosistema → organizaciones y creaciones → tu vida), con el estado real en cada caja; debajo, el detalle de la caja elegida y las decisiones. */
+:root {
+  --bg: #fafaf8; --panel: #ffffff; --fg: #1d1d22; --muted: #62626e; --line: #dcdce3;
+  --eco-bg: #efeefc; --eco-bd: #5a4fc8; --eco-fg: #3b3299;
+  --org-bg: #e4f4ee; --org-bd: #11704f; --org-fg: #0c5940;
+  --cre-bg: #fbeee7; --cre-bd: #a5421d; --cre-fg: #873414;
+  --vida-bg: #fbe9ef; --vida-bd: #a3365f; --vida-fg: #7e2148;
+  --david-bg: #efeee9; --david-bd: #55555c;
+  --vivo: #23885a; --ini: #b07415; --vacio: #8f8f9a; --priv: #8a5a77; --alert: #c2410c;
+  --display: "Instrument Sans", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #131317; --panel: #1b1b21; --fg: #ececf1; --muted: #a0a0ad; --line: #30303a;
+  --eco-bg: #1f1d38; --eco-bd: #8f86e8; --eco-fg: #c3bdfa;
+  --org-bg: #142b23; --org-bd: #4cbf94; --org-fg: #9fe3c8;
+  --cre-bg: #2e1c15; --cre-bd: #e0805a; --cre-fg: #f4b89c;
+  --vida-bg: #2d1822; --vida-bd: #de7aa1; --vida-fg: #f3b5cc;
+  --david-bg: #26262b; --david-bd: #8d8d96;
+  --vivo: #5ccf93; --ini: #e5ae55; --vacio: #6f6f7a; --priv: #c993b3; --alert: #fb8b54; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #131317; --panel: #1b1b21; --fg: #ececf1; --muted: #a0a0ad; --line: #30303a;
+  --eco-bg: #1f1d38; --eco-bd: #8f86e8; --eco-fg: #c3bdfa;
+  --org-bg: #142b23; --org-bd: #4cbf94; --org-fg: #9fe3c8;
+  --cre-bg: #2e1c15; --cre-bd: #e0805a; --cre-fg: #f4b89c;
+  --vida-bg: #2d1822; --vida-bd: #de7aa1; --vida-fg: #f3b5cc;
+  --david-bg: #26262b; --david-bd: #8d8d96;
+  --vivo: #5ccf93; --ini: #e5ae55; --vacio: #6f6f7a; --priv: #c993b3; --alert: #fb8b54; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--display); font-size: 15px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 56px }
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 22px }
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px }
+.top h1 { margin: 0; font-size: 1.25rem; font-weight: 600; color: var(--muted) }
+.stamp { font-family: var(--mono); font-size: 12px; color: var(--muted) }
+.pill-alert { all: unset; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--alert); border: 1.5px solid var(--alert); border-radius: 999px; padding: 4px 14px }
+.pill-alert:focus-visible { outline: 2px solid var(--alert); outline-offset: 2px }
+
+/* El diagrama */
+.diagram { display: grid; gap: 0 }
+.david { justify-self: center; background: var(--david-bg); border: 2px solid var(--david-bd); border-radius: 999px; padding: 8px 46px; font-size: 1.5rem; font-weight: 600 }
+.link-v { display: grid; justify-items: center; color: var(--muted); font-size: 15px; padding: 2px 0 }
+.link-v .stem { width: 2px; height: 26px; background: var(--muted); position: relative }
+.link-v .stem::after { content: ""; position: absolute; bottom: -2px; left: -5px; border: 6px solid transparent; border-top-color: var(--muted); border-bottom: 0 }
+.link-v.side { grid-template-columns: auto auto; gap: 10px; align-items: center }
+.eco { background: var(--eco-bg); border: 2px solid var(--eco-bd); border-radius: 16px; padding: 18px 22px 22px; display: grid; gap: 16px }
+.eco-head { all: unset; cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; color: var(--eco-fg) }
+.eco-head b { font-size: 1.45rem } .eco-head span { font-size: 1.05rem }
+.eco-head:focus-visible { outline: 2px solid var(--eco-bd); outline-offset: 4px; border-radius: 6px }
+.eco-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px }
+.eco-row .portavoz-slot { grid-column: 1 / -1; display: flex; justify-content: center }
+.eco-row .portavoz-slot .box { width: min(100%, 300px) }
+.box { all: unset; box-sizing: border-box; cursor: pointer; display: grid; align-content: start; gap: 3px; text-align: center;
+  border: 2px solid; border-radius: 12px; padding: 12px 12px 10px; min-width: 0; position: relative; background: var(--panel) }
+.box:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px }
+.box .n { font-size: 1.2rem; font-weight: 700; line-height: 1.2 }
+.box .s { font-size: .95rem }
+.box .state { display: flex; gap: 6px; justify-content: center; align-items: baseline; margin-top: 6px; font-size: 12.5px; color: var(--muted); line-height: 1.35; text-align: left }
+.box .dot { flex: none; width: 8px; height: 8px; border-radius: 50%; transform: translateY(-1px) }
+.st-vivo .dot { background: var(--vivo) } .st-iniciado .dot { background: var(--ini) }
+.st-vacio .dot { background: transparent; border: 1.5px dashed var(--vacio) } .st-privado .dot { background: var(--priv) }
+.box.st-vacio { border-style: dashed }
+.box .badge { position: absolute; top: -10px; right: -8px; background: var(--alert); color: var(--panel); font-size: 12px; font-weight: 700; border-radius: 999px; padding: 1px 8px; font-variant-numeric: tabular-nums }
+.box.sel { box-shadow: 0 0 0 4px var(--fg) }
+.g-jarvis { border-color: var(--eco-bd); color: var(--eco-fg); background: var(--eco-bg) }
+.eco .g-jarvis { background: var(--bg) }
+.g-generador { border-color: var(--org-bd); color: var(--org-fg); background: var(--org-bg); text-align: left }
+.g-creacion { border-color: var(--cre-bd); color: var(--cre-fg); background: var(--panel); text-align: left }
+.g-vida { border-color: var(--vida-bd); color: var(--vida-fg); background: var(--vida-bg); text-align: left }
+.g-generador .state, .g-creacion .state, .g-vida .state { justify-content: flex-start }
+.links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 4px 0 }
+.arrow { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 15px; min-height: 64px }
+.arrow svg { flex: none; overflow: visible }
+.arrow.c2 { grid-column: 2 / span 2; justify-content: center } .arrow.c4 { justify-content: flex-end }
+.lower-row { display: grid; grid-template-columns: 1.45fr 1fr 1fr 1.45fr; gap: 16px; align-items: stretch }
+.cre { border: 2px solid var(--cre-bd); background: var(--cre-bg); border-radius: 12px; padding: 12px; display: grid; gap: 8px; align-content: start }
+.cre h3 { margin: 0; font-size: 1.2rem; color: var(--cre-fg) }
+.cre .box { padding: 8px 10px; border-width: 1.5px } .cre .box .n { font-size: 1rem }
+.orgs-label { text-align: center; color: var(--muted); font-size: 15px; padding: 6px 0 10px }
+.vida .box { width: 100%; padding: 14px 18px }
+.g-base { border-color: var(--eco-bd); color: var(--eco-fg); background: var(--panel); text-align: left; border-style: double; border-width: 4px }
+.g-base .state { justify-content: flex-start }
+.reglas-slot .box { width: 100%; grid-template-columns: auto 1fr; column-gap: 14px; align-items: baseline }
+.reglas-slot .box .state { grid-column: 1 / -1; margin-top: 2px }
+
+/* La ficha de cada pieza */
+dialog#ficha { width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 48px); border: 1px solid var(--line); border-radius: 14px; padding: 0; background: var(--panel); color: var(--fg) }
+dialog#ficha::backdrop { background: rgba(10, 10, 20, .45) }
+.ficha-in { padding: 20px 22px 22px; display: grid; gap: 12px }
+.ficha-top { display: flex; justify-content: space-between; align-items: start; gap: 12px }
+.ficha-top h2 { margin: 0; font-size: 1.35rem } .ficha-top .s { color: var(--muted); font-size: 14px }
+.cerrar { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 8px; padding: 4px 12px; cursor: pointer }
+.cerrar:focus-visible { outline: 2px solid var(--eco-bd) }
+.ficha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px }
+.ficha-grid div { background: var(--bg); border-radius: 8px; padding: 8px 10px; font-size: 13.5px }
+.ficha-grid b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); font-family: var(--mono); font-weight: 500; margin-bottom: 2px }
+.que { font-size: 15px; margin: 0; max-width: 68ch }
+.ficha-in h3 { margin: 4px 0 0; font-size: 1rem }
+.ficha-in .items { max-height: none }
+
+/* Decisiones */
+.below { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; max-width: 860px; width: 100%; justify-self: center }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; min-width: 0 }
+.panel h2 { margin: 0 0 4px; font-size: 1.1rem }
+.meta { color: var(--muted); font-size: 13.5px; margin: 0 0 10px }
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; max-height: 520px; overflow-y: auto }
+.items li { border-top: 1px solid var(--line); padding-top: 8px; min-width: 0 }
+.items .t { font-weight: 500; font-size: 14px } .items .d { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere }
+code, .path { font-family: var(--mono); font-size: 11.5px; color: var(--muted); overflow-wrap: anywhere }
+a { color: var(--eco-fg) }
+.q-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px }
+.q-head small { font-family: var(--mono); font-size: 12px; color: var(--muted) }
+.filter { font-size: 12.5px; color: var(--muted); margin: 0 0 8px }
+.filter button { all: unset; cursor: pointer; text-decoration: underline; color: var(--eco-fg) }
+.note { font-size: 13px; color: var(--muted); margin: 4px 0 10px } .note.warn { color: var(--alert) }
+.dec { border-top: 1px solid var(--line); padding: 12px 0; display: grid; gap: 6px }
+.dec .kind { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted) }
+.dec .t { font-size: 14px; font-weight: 500 } .dec .d { font-size: 12.5px; color: var(--muted) }
+.btns { display: flex; flex-wrap: wrap; gap: 6px }
+.btn { font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer }
+.btn:hover { border-color: var(--eco-bd) } .btn:focus-visible { outline: 2px solid var(--eco-bd); outline-offset: 1px }
+.btn.on { background: var(--eco-bd); border-color: var(--eco-bd); color: var(--panel) } .btn:disabled { opacity: .5; cursor: not-allowed }
+textarea { font: inherit; font-size: 13px; width: 100%; min-height: 50px; resize: vertical; border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; background: var(--bg); color: var(--fg) }
+.saved { font-size: 12px; color: var(--vivo) }
+details.panel summary { cursor: pointer; font-weight: 600 }
+details.panel ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px; font-size: 13.5px }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; font-size: 12.5px; color: var(--muted) }
+.legend span { display: inline-flex; align-items: center; gap: 6px }
+.legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block }
+
+@media (max-width: 860px) {
+  .eco-row, .links, .lower-row, .below { grid-template-columns: minmax(0, 1fr) }
+  .links .arrow { min-height: 0; justify-content: flex-start } .arrow.c2 { grid-column: auto }
+  .box, .g-generador { text-align: left } .box .state { justify-content: flex-start }
+}
+@media (prefers-reduced-motion: no-preference) { .box { transition: transform .15s, box-shadow .15s } .box:not(:disabled):hover { transform: translateY(-2px) } }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <h1>Ecosistema · pincha cualquier pieza para ver qué tiene dentro</h1>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <button class="pill-alert" id="goQueue" type="button"></button>
+      <span class="stamp" id="stamp">Cargando…</span>
+    </div>
+  </div>
+
+  <div class="diagram" id="diagram" aria-label="Mapa del organismo con el estado real de cada pieza"></div>
+  <div class="legend"><span><i style="background:var(--vivo)"></i>En marcha</span><span><i style="background:var(--ini)"></i>Iniciado</span><span><i style="border:1.5px dashed var(--vacio)"></i>Por montar</span><span><i style="background:var(--priv)"></i>Privado</span><span><i style="background:var(--alert)"></i>Decisiones que esperan</span></div>
+
+  <dialog id="ficha" aria-labelledby="ficha-titulo"><div class="ficha-in" id="detail"></div></dialog>
+
+  <div class="below">
+    <section class="panel" id="queue">
+      <div class="q-head"><h2>Espera tu decisión</h2><small id="qcount"></small></div>
+      <p class="filter" id="filter" hidden></p>
+      <p class="note" id="qnote">Lo que decidas aquí lo recoge la oficina en su siguiente pasada y lo aplica.</p>
+      <div id="qlist"></div>
+    </section>
+  </div>
+
+  <details class="panel"><summary>Qué sigue y bandeja</summary><ul id="sigue"></ul></details>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const ESTADO = { vivo: "En marcha", iniciado: "Iniciado", vacio: "Por montar", privado: "Privado" };
+  const OPCIONES = {
+    ficha: [["aprobar", "Aprobar"], ["corregir", "Corregir"], ["descartar", "Descartar"]],
+    pregunta: [["si", "Sí"], ["no", "No"], ["otra", "Otra respuesta"]],
+    semilla: [["cuidar", "Seguir cuidándola"], ["descartar", "Descartar"]],
+    fuente: [["aceptar", "Aceptar"], ["rechazar", "Rechazar"]],
+    cambio: [["aplicar", "Aplicar al plano"], ["corregir", "Corregir"], ["descartar", "Descartar"]]
+  };
+  const NECESITA_NOTA = { corregir: true, otra: true };
+  let data = null, sel = "ecosistema", filtro = null, db = null, decisiones = {};
+  const docId = (id) => id.replace(/[^A-Za-z0-9_\-.~:@+]/g, "-").slice(0, 190);
+  const caja = (id) => data.cajas.find((c) => c.id === id);
+  const sinDecidir = (c) => data.publico ? (caja(c).pendientes_publico || 0) : data.pendientes.filter((p) => p.caja === c && !decisiones[docId(p.id)]).length;
+
+  function boxEl(id) {
+    const c = caja(id);
+    const b = el("button", `box g-${c.grupo} st-${c.estado}`); b.type = "button";
+    if (sel === id) b.classList.add("sel");
+    b.appendChild(el("span", "n", c.nombre));
+    b.appendChild(el("span", "s", c.sub));
+    const st = el("span", "state"); st.appendChild(el("span", "dot")); st.appendChild(el("span", null, c.resumen)); b.appendChild(st);
+    const n = sinDecidir(id); if (n) b.appendChild(el("span", "badge", String(n)));
+    b.setAttribute("aria-label", `${c.nombre}: ${ESTADO[c.estado]}. ${c.resumen}${n ? `. ${n} decisiones esperan` : ""}`);
+    if (c.estado === "privado") b.addEventListener("click", () => select(id));
+    else b.addEventListener("click", () => select(id));
+    return b;
+  }
+
+  function arrow(cls, label, kind) {
+    const a = el("div", "arrow " + cls);
+    const ns = "http://www.w3.org/2000/svg"; const svg = document.createElementNS(ns, "svg");
+    const w = kind === "both" ? 34 : 14; svg.setAttribute("width", w); svg.setAttribute("height", "56"); svg.setAttribute("viewBox", `0 0 ${w} 56`);
+    const line = (x, up, dashed, color) => {
+      const l = document.createElementNS(ns, "line"); l.setAttribute("x1", x); l.setAttribute("x2", x); l.setAttribute("y1", up ? 52 : 4); l.setAttribute("y2", up ? 10 : 46);
+      l.setAttribute("stroke", color); l.setAttribute("stroke-width", "2"); if (dashed) l.setAttribute("stroke-dasharray", "5 4"); svg.appendChild(l);
+      const p = document.createElementNS(ns, "path"); p.setAttribute("d", up ? `M${x - 6} 12 L${x} 2 L${x + 6} 12 Z` : `M${x - 6} 44 L${x} 54 L${x + 6} 44 Z`); p.setAttribute("fill", color); svg.appendChild(p);
+    };
+    if (kind === "both") { line(8, true, false, "var(--org-bd)"); line(26, false, false, "var(--org-bd)"); }
+    else line(7, false, true, kind === "eco" ? "var(--eco-bd)" : "var(--muted)");
+    a.appendChild(svg); a.appendChild(el("span", null, label));
+    return a;
+  }
+
+  function renderDiagram() {
+    const d = $("diagram"); d.textContent = "";
+    d.appendChild(el("div", "david", "David"));
+    const lv = el("div", "link-v side"); lv.appendChild(el("div", "stem")); lv.appendChild(el("span", null, "hablas con")); d.appendChild(lv);
+    const eco = el("section", "eco");
+    const head = el("button", "eco-head"); head.type = "button";
+    head.appendChild(el("b", null, "Jarvis")); head.appendChild(el("span", null, "lo que está por encima de todo y comparten todos"));
+    head.addEventListener("click", () => select("ecosistema")); eco.appendChild(head);
+    const row = el("div", "eco-row");
+    const slot = el("div", "portavoz-slot"); slot.appendChild(boxEl("portavoz")); row.appendChild(slot);
+    ["disenador", "memoria", "metodos", "laboratorio"].forEach((id) => row.appendChild(boxEl(id)));
+    const rs = el("div", "portavoz-slot reglas-slot"); rs.appendChild(boxEl("reglas")); row.appendChild(rs);
+    eco.appendChild(row); d.appendChild(eco);
+    const links = el("div", "links");
+    links.appendChild(arrow("c1", "diseña", "eco"));
+    links.appendChild(arrow("c2", "aprende de ellos y les sirve", "both"));
+    links.appendChild(arrow("c4", "los que cuajan", "lab"));
+    d.appendChild(links);
+    const low = el("div", "lower-row");
+    ["asesoria", "fruteria", "importadora"].forEach((id) => low.appendChild(boxEl(id)));
+    const cre = el("div", "cre"); cre.appendChild(el("h3", null, "Creaciones"));
+    ["erp", "herramienta", "holded"].forEach((id) => cre.appendChild(boxEl(id)));
+    low.appendChild(cre); d.appendChild(low);
+    d.appendChild(el("div", "orgs-label", "Generadores de caja"));
+    const vida = el("div", "vida"); vida.appendChild(boxEl("vida")); d.appendChild(vida);
+  }
+
+  function itemList(items) {
+    const ul = el("ul", "items");
+    items.forEach((it) => {
+      const li = el("li"); li.appendChild(el("div", "t", it.titulo));
+      if (it.detalle) li.appendChild(el("div", "d", it.detalle));
+      if (it.enlace && /^https:\/\//.test(it.enlace)) { const a = el("a", null, it.enlace.includes("github.com") ? "Abrir en GitHub" : "Abrir en el diseñador"); a.href = it.enlace; a.target = "_blank"; a.rel = "noopener"; li.appendChild(a); }
+      else if (it.ruta) li.appendChild(el("code", null, it.ruta));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
+  function cabecera(d, titulo, sub) {
+    const top = el("div", "ficha-top"); const t = el("div");
+    const h = el("h2", null, titulo); h.id = "ficha-titulo"; t.appendChild(h); if (sub) t.appendChild(el("div", "s", sub));
+    const x = el("button", "cerrar", "Cerrar"); x.type = "button"; x.addEventListener("click", cerrarFicha);
+    top.appendChild(t); top.appendChild(x); d.appendChild(top);
+  }
+
+  function renderDetail() {
+    const d = $("detail"); d.textContent = "";
+    if (sel === "ecosistema") {
+      cabecera(d, "Jarvis y el ecosistema", "lo que está por encima de todo y comparten todos");
+      d.appendChild(el("p", "que", data.ecosistema.resumen));
+      d.appendChild(el("h3", null, "Qué hay"));
+      d.appendChild(itemList(data.ecosistema.items));
+      return;
+    }
+    const c = caja(sel);
+    cabecera(d, c.nombre, c.sub);
+    d.appendChild(el("p", "que", c.que));
+    const g = el("div", "ficha-grid");
+    const dato = (k, v) => { const x = el("div"); x.appendChild(el("b", null, k)); x.appendChild(document.createTextNode(v)); g.appendChild(x); };
+    dato("Estado", `${ESTADO[c.estado]} · ${c.resumen}`);
+    dato("Se construye con", c.plantilla);
+    dato("Reglas", c.id === "reglas" ? "Es la base: manda sobre todo lo demás" : "Las globales (P0–P8, C1–C7) y, si es un generador, sus reglas propias");
+    const n = data.publico ? (c.pendientes_publico || 0) : data.pendientes.filter((p) => p.caja === c.id).length;
+    dato("Decisiones", n ? `${n} esperan tu decisión` : "Nada pendiente");
+    d.appendChild(g);
+    if (n && data.publico) {
+      const a = el("a", "btn", "Decidir en claude.ai"); a.href = data.decidir_en; a.target = "_blank"; a.rel = "noopener"; d.appendChild(a);
+    } else if (n) {
+      const b = el("button", "btn", "Ver sus decisiones"); b.type = "button";
+      b.addEventListener("click", () => { filtro = c.id; cerrarFicha(); renderQueue(); $("queue").scrollIntoView({ behavior: "smooth", block: "start" }); });
+      d.appendChild(b);
+    }
+    d.appendChild(el("h3", null, c.items.length ? `Qué tiene dentro (${c.items.length})` : "Qué tiene dentro"));
+    if (c.items.length) d.appendChild(itemList(c.items));
+    else d.appendChild(el("p", "note", c.estado === "vacio" ? "Nada montado todavía: es un hueco del ecosistema. Se monta con su plantilla." : c.estado === "privado" ? "Este espacio es tuyo: el tablero no lo lee." : "Sin elementos que mostrar."));
+  }
+
+  function cerrarFicha() { const f = $("ficha"); if (f.open) f.close(); }
+
+  function select(id) {
+    sel = id;
+    renderDiagram(); renderDetail();
+    const f = $("ficha");
+    try { if (!f.open) f.showModal(); } catch (e) { f.setAttribute("open", ""); }
+  }
+
+  function renderQueue() {
+    const list = $("qlist"); list.textContent = "";
+    const todos = data.pendientes;
+    const visibles = filtro ? todos.filter((p) => p.caja === filtro) : todos;
+    const libres = todos.filter((p) => !decisiones[docId(p.id)]).length;
+    $("qcount").textContent = `${libres} de ${todos.length}`;
+    $("goQueue").textContent = libres ? `${libres} decisiones esperan` : "Todo decidido";
+    const f = $("filter"); f.textContent = "";
+    if (filtro) {
+      f.hidden = false; f.appendChild(document.createTextNode(`Solo las de ${caja(filtro).nombre}. `));
+      const b = el("button", null, "Ver todas"); b.type = "button"; b.addEventListener("click", () => { filtro = null; renderQueue(); }); f.appendChild(b);
+    } else f.hidden = true;
+    visibles.forEach((p) => {
+      const box = el("div", "dec"); const prev = decisiones[docId(p.id)];
+      box.appendChild(el("div", "kind", `${p.tipo} · ${caja(p.caja) ? caja(p.caja).nombre : p.caja}`));
+      box.appendChild(el("div", "t", p.titulo));
+      if (p.detalle) box.appendChild(el("div", "d", p.detalle));
+      if (p.origen) box.appendChild(el("code", "path", p.origen));
+      const btns = el("div", "btns"); const nota = el("textarea"); nota.id = "nota-" + docId(p.id);
+      nota.placeholder = "Nota para la oficina (obligatoria para corregir u otra respuesta)"; nota.value = (prev && prev.nota) || "";
+      const estado = el("div", "saved", prev ? `Decidido: ${prev.etiqueta}${prev.procesado ? " · aplicado por la oficina" : " · pendiente de aplicar"}` : "");
+      (OPCIONES[p.tipo] || OPCIONES.ficha).forEach(([val, label]) => {
+        const b = el("button", "btn" + (prev && prev.decision === val ? " on" : ""), label); b.type = "button";
+        if (!db) b.disabled = true;
+        b.addEventListener("click", () => decidir(p, val, label, nota, estado, b));
+        btns.appendChild(b);
+      });
+      box.appendChild(btns); box.appendChild(nota); box.appendChild(estado); list.appendChild(box);
+    });
+  }
+
+  async function decidir(p, val, label, nota, estado, boton) {
+    if (NECESITA_NOTA[val] && !nota.value.trim()) { estado.textContent = "Escribe en la nota qué hay que corregir o cuál es tu respuesta."; estado.style.color = "var(--alert)"; nota.focus(); return; }
+    boton.disabled = true; estado.style.color = ""; estado.textContent = "Guardando…";
+    try {
+      await db.collection("decisiones").doc(docId(p.id)).set({ pendiente: p.id, tipo: p.tipo, titulo: p.titulo, origen: p.origen || "",
+        decision: val, etiqueta: label, nota: nota.value.trim(), fecha: new Date().toISOString(), procesado: false });
+      estado.textContent = `Guardado: ${label}. La oficina lo aplica en su siguiente pasada.`;
+    } catch (e) {
+      estado.style.color = "var(--alert)";
+      estado.textContent = e && e.code === "permission_denied" ? "Solo quien edita el tablero puede decidir." : "No se ha podido guardar. Inténtalo de nuevo en un momento.";
+    } finally { boton.disabled = false; }
+  }
+
+  async function conectar() {
+    const timer = setTimeout(() => { $("qnote").textContent = "No se puede conectar con el almacén de decisiones. Puedes leer el tablero, pero no decidir desde aquí."; $("qnote").className = "note warn"; }, 10000);
+    try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { db = null; }
+    if (!db) { clearTimeout(timer); $("qnote").textContent = "Abre el tablero en claude.ai con tu cuenta para decidir desde aquí."; $("qnote").className = "note warn"; renderQueue(); return; }
+    db.collection("decisiones").onSnapshot((snap) => {
+      clearTimeout(timer); decisiones = {};
+      snap.docs.forEach((d) => { if (d.exists) decisiones[d.id] = d.data(); });
+      renderDiagram(); renderQueue();
+    }, () => { clearTimeout(timer); $("qnote").textContent = "Solo quien edita el tablero puede ver y tomar decisiones."; $("qnote").className = "note warn"; renderQueue(); });
+    renderQueue();
+  }
+
+  $("ficha").addEventListener("click", (e) => { if (e.target === $("ficha")) cerrarFicha(); });
+  $("goQueue").addEventListener("click", () => { filtro = null; renderQueue(); $("queue").scrollIntoView({ behavior: "smooth", block: "start" }); });
+
+  fetch("organismo.json").then((r) => r.json()).then((d) => {
+    data = d;
+    $("stamp").textContent = `Datos del ${d.generado}` + (d.planos_leidos ? ` · planos leídos el ${d.planos_leidos}` : "");
+    if (d.publico) {
+      document.querySelector(".below").hidden = true; document.querySelector("details.panel").hidden = true;
+      const g = $("goQueue"); g.textContent = `${d.pendientes_total} decisiones esperan · decidir en claude.ai`;
+      g.onclick = null; g.addEventListener("click", (e) => { e.stopImmediatePropagation(); window.open(d.decidir_en, "_blank", "noopener"); }, true);
+      renderDiagram(); renderDetail(); return;
+    }
+    const ul = $("sigue"); [...d.sigue.map((s) => "Sigue: " + s), ...d.bandeja.map((b) => "Bandeja: " + b)].forEach((x) => ul.appendChild(el("li", null, x.replace(/`/g, ""))));
+    renderDiagram(); renderDetail(); renderQueue(); conectar();
+  }).catch(() => { $("stamp").textContent = "No se han podido cargar los datos del organismo."; });
+})();
+</script>
+</body></html>

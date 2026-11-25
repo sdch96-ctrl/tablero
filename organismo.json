@@ -1,0 +1,782 @@
+{
+ "generado": "2026-11-25",
+ "planos_leidos": "2026-11-25",
+ "ecosistema": {
+  "resumen": "Jarvis es la entidad que está por encima de todo y comparten todos. El ecosistema es el conjunto entero: Jarvis, los generadores de caja, las creaciones, tu vida y la forma de construir.",
+  "items": [
+   {
+    "titulo": "Mapa del organismo",
+    "detalle": "el modelo que manda sobre los dibujos",
+    "ruta": "arnes/mapa.md"
+   },
+   {
+    "titulo": "Bandeja",
+    "detalle": "Sistema · en uso",
+    "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+   },
+   {
+    "titulo": "Cómo se organizan las piezas",
+    "detalle": "Sistema · abierta",
+    "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+   },
+   {
+    "titulo": "El ecosistema · nivel 1",
+    "detalle": "Sistema · en revisión",
+    "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+   }
+  ]
+ },
+ "cajas": [
+  {
+   "id": "portavoz",
+   "nombre": "Portavoz",
+   "sub": "te contesta de todo",
+   "grupo": "jarvis",
+   "que": "Jarvis hablando contigo. Conoce todo el ecosistema porque al empezar cada sesión lee su cerebro (arnes/jarvis.md): reglas, mapa, estado, decisiones e informes.",
+   "plantilla": "Agente · base",
+   "estado": "vivo",
+   "resumen": "Lee al empezar: reglas, mapa, estado, decisiones, informes y catálogo de plantillas",
+   "items": [
+    {
+     "titulo": "Cerebro de Jarvis",
+     "detalle": "qué lee, qué ve, qué puede hacer y qué nunca",
+     "ruta": "arnes/jarvis.md"
+    },
+    {
+     "titulo": "CLAUDE.md",
+     "detalle": "memoria compartida y reglas de trabajo",
+     "ruta": "CLAUDE.md"
+    },
+    {
+     "titulo": "ESTADO.md",
+     "detalle": "qué se hizo y qué sigue",
+     "ruta": "ESTADO.md"
+    },
+    {
+     "titulo": "bandeja.md",
+     "detalle": "22 ideas apuntadas",
+     "ruta": "bandeja.md"
+    },
+    {
+     "titulo": "Nivel 1 · cómo entra algo nuevo",
+     "detalle": "Sistema · en revisión",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Nivel 1 · qué pasa cuando pides algo",
+     "detalle": "Sistema · en revisión",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "disenador",
+   "nombre": "Diseñador",
+   "sub": "diseña cualquier pieza con plantillas",
+   "grupo": "jarvis",
+   "que": "Diseña agentes, oficinas, consejos, entornos, procesos y generadores de caja desde sus plantillas. Los planos del diseñador y sus vistas son una parte de su trabajo.",
+   "plantilla": "Catálogo de plantillas",
+   "estado": "vivo",
+   "resumen": "5 tipos de pieza · 7 partes · 3 variantes · 62 planos",
+   "items": [
+    {
+     "titulo": "Plantilla · Agente v1",
+     "detalle": "partes: misión, cerebro, ojos, manos, criterios, latido, permisos, registro",
+     "ruta": "arnes/plantillas/catalogo.md"
+    },
+    {
+     "titulo": "Plantilla · Oficina v1",
+     "detalle": "partes: misión, agentes, cerebro común, procedimiento, latido, permisos, registro, medida",
+     "ruta": "arnes/plantillas/catalogo.md"
+    },
+    {
+     "titulo": "Plantilla · Consejo v1",
+     "detalle": "partes: decisión, consejeros, datos, salida, latido, registro",
+     "ruta": "arnes/plantillas/catalogo.md"
+    },
+    {
+     "titulo": "Plantilla · Entorno v1",
+     "detalle": "partes: usuarios, vistas, acciones, permisos, Jarvis, motivación",
+     "ruta": "arnes/plantillas/catalogo.md"
+    },
+    {
+     "titulo": "Plantilla · Generador de caja v1",
+     "detalle": "partes: qué es, fase, cerebro, políticas, recorridos, equipo, números, registro",
+     "ruta": "arnes/plantillas/catalogo.md"
+    },
+    {
+     "titulo": "Variante · Agente minero",
+     "detalle": "leer fuentes y convertirlas en conocimiento"
+    },
+    {
+     "titulo": "Variante · Agente operativo",
+     "detalle": "seguir un recorrido del día a día"
+    },
+    {
+     "titulo": "Variante · Agente consejero",
+     "detalle": "opinar desde una perspectiva en un consejo"
+    },
+    {
+     "titulo": "Pieza hecha con plantilla · Jarvis (portavoz)",
+     "detalle": "agente · base",
+     "ruta": "arnes/jarvis.md"
+    },
+    {
+     "titulo": "Pieza hecha con plantilla · Minero",
+     "detalle": "agente · minero",
+     "ruta": "arnes/agentes/minero.md"
+    },
+    {
+     "titulo": "Pieza hecha con plantilla · Oficina de exploración",
+     "detalle": "oficina",
+     "ruta": "arnes/oficinas/exploracion/oficina.md"
+    },
+    {
+     "titulo": "Pieza hecha con plantilla · Tablero del arnés",
+     "detalle": "entorno",
+     "ruta": "arnes/tablero/"
+    },
+    {
+     "titulo": "Pieza hecha con plantilla · Asesoría",
+     "detalle": "generador de caja",
+     "ruta": "espacios/asesoria/` (sin pasar todavía por la plantilla)"
+    },
+    {
+     "titulo": "Abrir el diseñador de planos",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "El diseñador por dentro",
+     "detalle": "Sistema · en uso",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Qué queremos de la herramienta",
+     "detalle": "Sistema · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "El diagrama como idioma común",
+     "detalle": "Sistema · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "memoria",
+   "nombre": "Memoria común",
+   "sub": "aprende con fuente",
+   "grupo": "jarvis",
+   "que": "Lo que el ecosistema sabe, con fuente, fecha y nivel de fiabilidad. La alimenta el minero de la oficina de exploración y cada caso real.",
+   "plantilla": "Oficina · agente minero",
+   "estado": "vivo",
+   "resumen": "4 fichas · 7 preguntas vivas · 6 fuentes · 1 oficina trabajando",
+   "items": [
+    {
+     "titulo": "Oficina de exploración",
+     "detalle": "Lee entero lo que publican las fuentes activas, con las preguntas vivas delante, y convierte lo Domingo por la tarde, sola: pasada semanal. El informe queda listo para el lunes. A demanda: David puede pedir «mina este vídeo / este artículo» en cualquier momento. Última pasada: 2026-11-25.",
+     "ruta": "arnes/oficinas/exploracion/informes/2026-11-25.md"
+    },
+    {
+     "titulo": "Agente minero",
+     "detalle": "hecho con la plantilla de agente, variante minero",
+     "ruta": "arnes/agentes/minero.md"
+    },
+    {
+     "titulo": "Capturar información es la mitad; la otra mitad es revisarla para decidir si lo que persigues merece la pena",
+     "detalle": "ficha · borrador · nivel E",
+     "ruta": "arnes/conocimiento/fichas/2026-11-25-capturar-es-la-mitad-falta-revisar.md"
+    },
+    {
+     "titulo": "Lo que vale de un agente es el trabajo recurrente que sustituye horas de persona, no la investigación puntual",
+     "detalle": "ficha · borrador · nivel E",
+     "ruta": "arnes/conocimiento/fichas/2026-11-25-el-valor-esta-en-el-trabajo-recurrente-que-se-delega.md"
+    },
+    {
+     "titulo": "El conocimiento con valor se escribe para que lo ejecute una IA, con el método y sobre todo con los errores que hay que evitar",
+     "detalle": "ficha · borrador · nivel E",
+     "ruta": "arnes/conocimiento/fichas/2026-11-25-escribir-el-criterio-para-que-lo-ejecute-una-ia.md"
+    },
+    {
+     "titulo": "Un agente principal que conoce el negocio y delega en otras herramientas por MCP, con el email como canal con el cliente",
+     "detalle": "ficha · borrador · nivel E",
+     "ruta": "arnes/conocimiento/fichas/2026-11-25-un-orquestador-que-delega-en-herramientas.md"
+    },
+    {
+     "titulo": "P1 · ¿Cómo se organiza un sistema de agentes que trabaje solo y de verdad (roles, memoria, latido, revisión)?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "P2 · ¿Cómo se guarda y se gestiona el conocimiento para que se use y no se acumule?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "P3 · ¿Qué herramientas, repositorios o técnicas de IA nos dan manos y ojos nuevos (leer, actuar, hablar)?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "P4 · ¿Cómo capta y fideliza clientes una asesoría pequeña, y cómo se usa la IA para eso?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "P5 · ¿Cómo se separa lo personal de lo profesional sin perder las sinergias, y cómo se trabaja sin quemarse?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "P6 · ¿Cómo se diseña una organización (procesos, roles, datos) para que luego la lleven agentes?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "P7 · ¿Qué negocios pequeños se pueden montar y llevar con agentes para generar caja?",
+     "detalle": "pregunta viva"
+    },
+    {
+     "titulo": "Ecosistema · cómo aprende",
+     "detalle": "Sistema · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Aprender un tema por niveles",
+     "detalle": "Sistema · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Sacar lo que sabe Pepe",
+     "detalle": "Sistema · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 9,
+   "pendientes_publico": 9
+  },
+  {
+   "id": "metodos",
+   "nombre": "Métodos comunes",
+   "sub": "construir, inversa, competencia…",
+   "grupo": "jarvis",
+   "que": "Las formas de trabajar que se repiten en cualquier pieza: construir algo, hacer ingeniería inversa de un producto, analizar a la competencia, aprender un tema por niveles.",
+   "plantilla": "Forma de trabajar (por hacer)",
+   "estado": "iniciado",
+   "resumen": "5 métodos dibujados en el diseñador · sin plantilla de método todavía",
+   "items": [
+    {
+     "titulo": "Método · diseñar un camino inicial y enlazarlo al ERP",
+     "detalle": "Sistema · propuesto",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Método · mantener el ERP esquematizado al día con el desarrollo",
+     "detalle": "Sistema · propuesto",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Método · mejorar una ficha frente a la competencia",
+     "detalle": "Sistema · propuesto",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Método · Reverse Engineer Anything",
+     "detalle": "Sistema · en uso",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Proceso para construir algo · v1",
+     "detalle": "Sistema · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "laboratorio",
+   "nombre": "Laboratorio",
+   "sub": "ideas nuevas",
+   "grupo": "jarvis",
+   "que": "Donde las ideas se prueban antes de ser proyecto. Cada semilla tiene criterio para subir, criterio de muerte y fecha. Las que cuajan pasan a generador de caja o a creación.",
+   "plantilla": "Generador de caja (fases 1 a 3)",
+   "estado": "iniciado",
+   "resumen": "2 semillas en el semillero · sin jardineros todavía",
+   "items": [
+    {
+     "titulo": "Agentes gestionados para pymes: la asesoría (o una organización hermana) lleva agentes que hacen trabajo recurrente de sus clientes (contenido, atención, seguim",
+     "detalle": "semilla · nueva, por validar"
+    },
+    {
+     "titulo": "El criterio de la asesoría, empaquetado para la IA del cliente: instrucciones para que la IA del autónomo ordene y nombre facturas y prepare lo que la asesoría ",
+     "detalle": "semilla · nueva, por validar"
+    },
+    {
+     "titulo": "Nivel 1 · cómo nace y muere una idea",
+     "detalle": "Sistema · en revisión",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 2,
+   "pendientes_publico": 2
+  },
+  {
+   "id": "reglas",
+   "nombre": "Reglas",
+   "sub": "lo que rige todo",
+   "grupo": "base",
+   "que": "Las reglas de todo el ecosistema, con jerarquía: principio 0 > principios > normas externas > políticas de cada espacio > criterios de oficio > preferencias. La de arriba manda.",
+   "plantilla": "—",
+   "estado": "vivo",
+   "resumen": "16 reglas escritas · jerarquía de 6 niveles",
+   "items": [
+    {
+     "titulo": "P0 · El imperio está al servicio del bienestar, no al revés. Jarvis protege el tiempo de David con la gente que quiere y su descanso, y no le propone trabajo que se los coma.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P1 · Nada sale con el nombre de David sin su visto bueno.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P2 · La credibilidad profesional de David como asesor fiscal es intocable. Nada ilegal ni en zona gris.",
+     "detalle": "global · David · 30 ago 2026"
+    },
+    {
+     "titulo": "P3 · Datos de clientes: no entran sin una política validada por David; con agentes, solo por vías con contrato de encargo.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P4 · Lo fiscal, siempre con fuente primaria (BOE, AEAT, DGT, TEAC) y fecha. Lo no verificado es un pasivo.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P5 · Nunca se borra: se mueve a `_archivo/` y se pide confirmación para borrar de verdad.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P6 · Los agentes hacen, los consejos opinan, David decide.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P7 · Lo de «tu vida» es privado: no sale de este ordenador ni lo lee ninguna pieza profesional sin permiso.",
+     "detalle": "global · David · 25 nov 2026"
+    },
+    {
+     "titulo": "P8 · No se construye software nuevo sin un uso real identificado (un cliente, un euro o una pieza que lo necesita). Construir es la zona de confort de David y Jarvis tiene mandato de decírselo.",
+     "detalle": "global · David · 30 ago 2026"
+    },
+    {
+     "titulo": "C1 · Corregir pronto: si una petición contradice algo decidido, decirlo antes de construir.",
+     "detalle": "verificada"
+    },
+    {
+     "titulo": "C2 · Para diseños, 2 o 3 propuestas de verdad distintas, con la recomendada y su porqué. Un cambio pedido es cambiar de dirección, no retocar.",
+     "detalle": "verificada"
+    },
+    {
+     "titulo": "C3 · Una cosa en marcha a la vez. Los frentes nuevos se nombran una vez y van a la bandeja.",
+     "detalle": "verificada"
+    },
+    {
+     "titulo": "C4 · Revisar menos: criterio escrito → la pieza se autocomprueba → la autonomía se gana con historial, por tipo de tarea. Ninguna tarea fiscal baja del nivel de muestras sin historial.",
+     "detalle": "verificada"
+    },
+    {
+     "titulo": "C5 · Nada se guarda sin destino (ver `arnes/conocimiento/LEEME.md`).",
+     "detalle": "verificada"
+    },
+    {
+     "titulo": "C6 · Toda pieza nueva se construye desde su plantilla (ver `arnes/plantillas/`). Si no hay plantilla, primero se hace la plantilla.",
+     "detalle": "nueva, 25 nov 2026"
+    },
+    {
+     "titulo": "C7 · El modelo del ecosistema está en `arnes/mapa.md` y manda sobre cualquier dibujo.",
+     "detalle": "nueva, 25 nov 2026"
+    },
+    {
+     "titulo": "Reglas de cada generador",
+     "detalle": "en el CLAUDE.md de cada espacio, apartado «Reglas propias»"
+    },
+    {
+     "titulo": "Documento completo",
+     "ruta": "arnes/reglas/reglas.md"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "asesoria",
+   "nombre": "Asesoría",
+   "sub": "captar, sociedades, impuestos",
+   "grupo": "generador",
+   "que": "Checa Asesores: autónomos y pymes en Gandía, algún expat. Da caja y casos al ecosistema. Está en las fases 6 y 7: dibujando sus recorridos y escribiendo sus criterios.",
+   "plantilla": "Generador de caja",
+   "estado": "vivo",
+   "resumen": "26 planos · 1 ficha propia · 1 agente · 1 prueba",
+   "items": [
+    {
+     "titulo": "Cerebro de la asesoría",
+     "detalle": "su memoria propia",
+     "ruta": "espacios/asesoria/CLAUDE.md"
+    },
+    {
+     "titulo": "Agente · Revisión semanal",
+     "detalle": "en pruebas · sin activar (falta política de datos, regla P3)",
+     "ruta": "espacios/asesoria/agentes/revision-semanal.md"
+    },
+    {
+     "titulo": "Prueba · Revisión semanal · autónomo",
+     "detalle": "el plano funciona en el camino feliz, pero tiene 3 tropiezos serios y 4 menores.",
+     "ruta": "espacios/asesoria/pruebas/2026-11-25-revision-semanal-autonomo.md"
+    },
+    {
+     "titulo": "Para captar cuando la IA abarate lo mecánico, especializarse en un tipo de cliente y no mandar el presupuesto por correo",
+     "detalle": "ficha · borrador",
+     "ruta": "espacios/asesoria/conocimiento/2026-11-25-especializarse-y-no-mandar-el-presupuesto-por-correo.md"
+    },
+    {
+     "titulo": "Agente · Explorador de leads (trabajo diario)",
+     "detalle": "Recorridos anteriores al método · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Equipo de agentes IA",
+     "detalle": "sin proyecto · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Beckham / expatriado",
+     "detalle": "Recorridos anteriores al método · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Encargo y cumplimiento",
+     "detalle": "Recorridos anteriores al método · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Alta del autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Cierre anual · autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Cierre anual · SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Crear un caso de prueba",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Cliente autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Cliente SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Recorrido del cliente · desde que entra",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Constitución de la SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Registrar la entrada",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Comprobación mensual · pagos fijos",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Servicio recurrente · autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Servicio recurrente · SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Preparar la primera reunión · autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Preparar la primera reunión · SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Plantilla · preparar la primera reunión",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Revisión semanal · autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Conciliación semanal · SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Traspaso del autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Traspaso de la SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Cierre trimestral · autónomo",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Cierre trimestral · SL",
+     "detalle": "ERP Checa · recorridos validados · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Organigrama · Checa Asesores",
+     "detalle": "sin proyecto · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 8,
+   "pendientes_publico": 8
+  },
+  {
+   "id": "fruteria",
+   "nombre": "Frutería",
+   "sub": "sus planos, su memoria",
+   "grupo": "generador",
+   "que": "Ejemplo de generador de caja con consejo propio (compras, finanzas, comercial, operaciones, fiscal, el cliente). Por diseñar.",
+   "plantilla": "Generador de caja · consejo",
+   "estado": "vacio",
+   "resumen": "Por diseñar: sin planos ni memoria",
+   "items": [],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "importadora",
+   "nombre": "Importadora",
+   "sub": "por diseñar",
+   "grupo": "generador",
+   "que": "Generador de caja previsto. Por diseñar.",
+   "plantilla": "Generador de caja",
+   "estado": "vacio",
+   "resumen": "Por diseñar: sin planos ni memoria",
+   "items": [],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "erp",
+   "nombre": "ERP",
+   "sub": "el del día a día",
+   "grupo": "creacion",
+   "que": "El ERP propio para el día a día y las presentaciones. Sus recorridos se diseñan en el diseñador y lo construyen su padre y Julio.",
+   "plantilla": "Entorno · recorridos",
+   "estado": "iniciado",
+   "resumen": "3 planos del ERP · lo construyen su padre y Julio",
+   "items": [
+    {
+     "titulo": "Repositorio Proyecto-CFO",
+     "enlace": "https://github.com/sdch96-ctrl/Proyecto-CFO"
+    },
+    {
+     "titulo": "Cerebro del ERP",
+     "ruta": "espacios/erp/CLAUDE.md"
+    },
+    {
+     "titulo": "ERP · mapa de módulos",
+     "detalle": "ERP Checa · mapa real · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "CRM",
+     "detalle": "sin proyecto · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Expedientes",
+     "detalle": "sin proyecto · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "herramienta",
+   "nombre": "La propia herramienta",
+   "sub": "tablero, minero, diseñador",
+   "grupo": "creacion",
+   "que": "Lo que se construye para que el ecosistema funcione: este tablero, los scripts de los agentes, el código del diseñador.",
+   "plantilla": "Entorno",
+   "estado": "vivo",
+   "resumen": "Este tablero · 3 scripts propios · el código del diseñador",
+   "items": [
+    {
+     "titulo": "traer.py",
+     "detalle": "herramienta",
+     "ruta": "arnes/oficinas/exploracion/herramientas/traer.py"
+    },
+    {
+     "titulo": "generar.py",
+     "detalle": "herramienta",
+     "ruta": "arnes/tablero/generar.py"
+    },
+    {
+     "titulo": "publicar_web.py",
+     "detalle": "herramienta",
+     "ruta": "arnes/tablero/publicar_web.py"
+    },
+    {
+     "titulo": "Código del diseñador",
+     "ruta": "disenador/LEEME.md"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "holded",
+   "nombre": "Holded",
+   "sub": "ingeniería inversa",
+   "grupo": "creacion",
+   "que": "El programa que se usa hoy. Desmontado en planos para aprender de él y mejorar el ERP propio.",
+   "plantilla": "Método · ingeniería inversa",
+   "estado": "iniciado",
+   "resumen": "Lo usas hoy · 16 planos de ingeniería inversa",
+   "items": [
+    {
+     "titulo": "Holded · devoluciones y abonos",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · cierre anual",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · trabajo del asesor (plan Asesoría)",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · compras e inventario",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · fabricación",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · ciclo de gasto (bandeja OCR)",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · del lead al cliente (CRM)",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · mapa de módulos",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · puesta en marcha de una empresa",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · proyectos y rentabilidad",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · facturación recurrente",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · equipo y nóminas",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · tesorería diaria",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · venta en tienda (TPV)",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · cierre trimestral de impuestos",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    },
+    {
+     "titulo": "Holded · ciclo de venta",
+     "detalle": "Holded Reverse · borrador",
+     "enlace": "https://claude.ai/artifact/PHgYBedp1r6zg7q4Wf5nJL"
+    }
+   ],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  },
+  {
+   "id": "vida",
+   "nombre": "Tu vida",
+   "sub": "crecimiento personal, aprender temas",
+   "grupo": "vida",
+   "que": "Lo personal: crecimiento, salud, aprender temas. Usa la memoria y el diseñador, pero es privado: el tablero no lo lee y no se sube a GitHub.",
+   "plantilla": "Entorno de estudio (por diseñar)",
+   "estado": "privado",
+   "resumen": "Privado: el tablero no lo lee y no se sube a GitHub",
+   "items": [],
+   "pendientes": 0,
+   "pendientes_publico": 0
+  }
+ ],
+ "pendientes": [],
+ "sigue": [],
+ "bandeja": [],
+ "publico": true,
+ "pendientes_total": 19,
+ "decidir_en": "https://claude.ai/artifact/8dzoqjebYfSoyScxqZusjH"
+}
